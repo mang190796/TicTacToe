@@ -15,12 +15,14 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
+    // Open next activity PvP
     public void nextPvP(View view){
         Intent intent = new Intent(this,NextActivity.class);
         startActivity(intent);
         bool = false;
     }
 
+    // Open next activity PvC
     public void nextPvC(View view){
         Intent intent = new Intent(this,NextActivity.class);
         startActivity(intent);

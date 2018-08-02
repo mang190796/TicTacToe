@@ -1,14 +1,10 @@
 package com.example.mattbook_pro.tictactoe;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -30,8 +26,11 @@ public class NextActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Menu items
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        // New game button
         if (item.getItemId() == R.id.action_new_game) {
             Board.reset();
 
@@ -40,12 +39,14 @@ public class NextActivity extends AppCompatActivity {
             }
         }
 
+        // Undo button
         if (item.getItemId() == R.id.action_undo) {
             Board.undo();
         }
         return super.onOptionsItemSelected(item);
     }
 
+    // Pop-up dialog to choose player
     public void startAs() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Play as?");

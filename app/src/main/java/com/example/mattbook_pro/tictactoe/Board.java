@@ -31,6 +31,7 @@ public class Board {
     static boolean AIStart;
     Bitmap xImage, oImage;
 
+    // Point class
     class Point{
         int x, y;
 
@@ -40,6 +41,7 @@ public class Board {
         }
     }
 
+    // AI algorithm
     class TTT {
         List<Point> availablePoints;
         Point computersMove;
@@ -47,6 +49,7 @@ public class Board {
         public TTT() {
         }
 
+        // Check if X wins
         public boolean hasXWon() {
             if ((array[0][0] == array[1][1] && array[0][0] == array[2][2] && array[0][0] == 1) || (array[0][2] == array[1][1] && array[0][2] == array[2][0] && array[0][2] == 1)) {
                 return true;
@@ -59,6 +62,7 @@ public class Board {
             return false;
         }
 
+        // Check if O wins
         public boolean hasOWon() {
             if ((array[0][0] == array[1][1] && array[0][0] == array[2][2] && array[0][0] == 2) || (array[0][2] == array[1][1] && array[0][2] == array[2][0] && array[0][2] == 2)) {
                 return true;
@@ -72,6 +76,7 @@ public class Board {
             return false;
         }
 
+        // Return open positions
         public List<Point> getAvailableStates() {
             availablePoints = new ArrayList<>();
             for (int i = 0; i < 3; ++i) {
@@ -84,10 +89,12 @@ public class Board {
             return availablePoints;
         }
 
+        // Place a move
         public void placeAMove(Point point, int player) {
             array[point.x][point.y] = player;
         }
 
+        // Minimax algorithm
         public int minimax(int depth, int turn) {
             if (hasXWon()) {
                 return -1;
@@ -149,7 +156,6 @@ public class Board {
         BoardStartY = height / 2 - width / 2;
         BoardEndX = BoardStartX + width;
         BoardEndY = BoardStartY + width;
-
         BoardRect = new Rect(BoardStartX, BoardStartY, BoardEndX, BoardEndY);
 
         // Board lines
@@ -270,7 +276,6 @@ public class Board {
         // Draw x and o
         Paint x = new Paint();
         x.setColor(Color.BLUE);
-
 
         Paint o = new Paint();
         o.setColor(Color.RED);
@@ -522,8 +527,6 @@ public class Board {
         if(!AIStart) {
             PlayerTurn = 0;
         }
-
-
         AIStart = false;
 
         // End game
