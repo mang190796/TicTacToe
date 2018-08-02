@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="app_undo">Undo</string>
+    <string name="app_new_game">New Game</string>
+    <string name="PvP">Player vs. Player</string>
+    <string name="PvC">Player vs. Computer</string>
+</resources>
